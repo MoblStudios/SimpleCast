@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body class="display-high"> <!-- display-{{focused meta}} -->
+	<div id="wrapper" class="expanded-top">
+		
+		<div class="top-wrap str-25"> <!-- s-{{strength of the day's focused-meta}} -->
+			<div class="forecast-today"></div>
+			
+			<ul class="menu-focus">
+				<li class="meta-1 meta-high">High</li>
+				<li class="meta-2 meta-low">Low</li>
+				<li class="meta-3 meta-rain">Rain</li>
+				<!-- <li class="meta-4 meta-clouds">Clouds</li> -->
+			</ul>
+		</div> 
+		<div class="forecast" id="forecast">
+			<ol class="forecast-days"></ol>
+		</div>
+	
+		<div class="settings">
+			<span class="btn">Close</span>
+			location<br />
+			which things shown where?<br />
+			credits
+		</div>
+	</div>
+	<script id="today-template" type="text/x-handlebars-template">
+		<i class="icon" data-icon="{{icon}}"></i>
+		<ul class="day-meta">
+			<li class="meta-1 meta-high">{{high}}&deg;</li>
+			<li class="meta-display"> / </li>
+			<li class="meta-1 meta-high">{{low}}&deg;</li>
+			<li class="meta-1 meta-rain">{{perc}}%</li>
+		</ul>
+		<span class="date"><strong>{{weekDay}}</strong> {{month}}, {{day}}</span>
+	</script>
+	<script id="forecast-template" type="text/x-handlebars-template">
+		{{#forecast}}
+			<li class="str-0">
+				<i class="icon" data-icon="{{icon}}"></i>
+				<span class="date"><strong>{{weekDay}}</strong> {{month}} {{day}}</span>
+				<ul class="day-meta">
+					<li class="meta-1 meta-high">{{high}}&deg;</li>
+					<li class="meta-2 meta-low">{{low}}&deg;</li>
+					<li class="meta-3 meta-rain">{{perc}}%</li>
+				</ul>
+			</li>
+		{{/forecast}}
+	</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="js/handlebars.min.js"></script>
+<script src="js/script-ck.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

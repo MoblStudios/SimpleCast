@@ -1,0 +1,10 @@
+$high1: #BC4500;
+$high2: #AD2800;
+
+// ========================================= Mixins
+
+@mixin radius($dist) {
+  -ie-border-radius: $dist;
+  -moz-border-radius: $dist;
+  border-radius: $dist;
+}
