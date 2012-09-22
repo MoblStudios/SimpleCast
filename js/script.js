@@ -24,6 +24,7 @@ $(function() {
 		'rain' : 'Cloud-Rain', 
 		'chancetstorms' : 'Cloud-Rain', 
 		'fog' : 'Cloud-Fog',
+		'mostlycloudy' : 'Cloud-Fog',
 		'partlycloudy' : 'Cloud-Fog',
 		'chancerain' : 'Cloud-Drizzle',
 		'windy' : 'Wind'
