@@ -1,4 +1,4 @@
 SimpleCast
 ----------
 
-<h3>From the mind of @andrewcrocker</h3>
+<h3>Simple weather from the mind of @andrewcrocker</h3>
