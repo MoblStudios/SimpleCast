@@ -7,7 +7,7 @@ $(function() {
 		if(scrollTop > 0){
 			$('#wrapper').removeClass('expanded-top');
 		}else{
-			//$('#wrapper').addClass('expanded-top');
+			$('#wrapper').addClass('expanded-top');
 		}
 	
 	});
@@ -21,13 +21,27 @@ $(function() {
 	var iconMap = {
 		'clear' : 'Sun',
 		'Sun' : 'Sun',
+		'sunny' : 'Sun',
 		'rain' : 'Cloud-Rain', 
-		'chancetstorms' : 'Cloud-Rain', 
+		'chancetstorms' : 'Cloud-Lightning', 
+		'chancestorms' : 'Cloud-Lightning',
+		'tstorms' : 'Cloud-Lightning',
 		'fog' : 'Cloud-Fog',
-		'mostlycloudy' : 'Cloud-Fog',
-		'partlycloudy' : 'Cloud-Fog',
+		'hazy' : 'Cloud-Fog',
+		'mostlycloudy' : 'Cloud',
+		'cloudy' : 'Cloud',
+		'mostlysunny' : 'Cloud-Sun',
+		'partlycloudy' : 'Cloud-Sun',
+		'partlysunny' : 'Cloud-Sun',
 		'chancerain' : 'Cloud-Drizzle',
-		'windy' : 'Wind'
+		'windy' : 'Wind',
+		'chanceflurries' : 'Cloud-Snow',
+		'chancesleet' : 'Cloud-Hail',
+		'sleet' : 'Cloud-Hail',
+		'chancesnow' : 'Snowflake',
+		'flurries' : 'Cloud-Snow',
+		'snow' : 'Cloud-Snow',
+		'unknown' : 'Cloud-Sun'
 	};
 
 	//compile templates
