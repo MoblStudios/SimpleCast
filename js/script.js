@@ -4,6 +4,7 @@ $(function() {
 	$(window).scroll(function () { 
 		
 		var scrollTop = $(window).scrollTop();
+		
 		if(scrollTop > 0){
 			$('#wrapper').removeClass('expanded-top');
 		}else{
