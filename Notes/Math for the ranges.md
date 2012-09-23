@@ -6,9 +6,13 @@ If we want a little bit of a shortcut, we can judge each forecast day by the tem
 
 ## Vars for for temps:
 var Normal = temp_high.normal.F  (or low, for the lows)
+
 var Range = 10.  totally arbitraty
+
 var NormalTop = Normal + Range
+
 var NormalBottom = Normal - Range
+
 var Today = Either the high or the low for the current day.
 
 ### math for highs
