@@ -13,18 +13,23 @@ var Today = Either the high or the low for the current day.
 
 ### math for highs
 // we get percent within the range.
+
 var Percent = (((Today - NormalBottom)/(Range*2))*100)
 
 ### math for lows
 // we get percent within the range.
+
 var Percent = (((NormalTop - Today)/(Range*2))*100)
-// colds will seem reversed, since I want to show colors on the coldest days, not warmest.
+
+// colds will seem reversed, since I want to show colors on the 
+coldest days, not warmest.
 
 ### math for rain
 no math needed, I think.  we just need a number like '12' for 12%.  and it'll get rounded out to 15% later on.
 
 ## Make percents work with our 5% steps for the class names.  Note on this, I *may* take the rounding to 1% from 5% if it needs more subtlety:
 // make the percent conform to the 5% steps we set up
+
 Math.round(parseInt(Percent)/5)*5
 
 # other options:
