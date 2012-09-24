@@ -21,18 +21,20 @@ body {
 }
 
 // transitions
-.top-wrap,
+#top-wrap,
 li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s background ease-out;}
 
 // top
-.top-wrap {
+#top-wrap.str-0 {
+	background: #333;
+}
+#top-wrap {
 	position: fixed;
 	z-index: 100;
 	width: 100%;
 	top:0;
 	left:0;
 	overflow: hidden;
-	background: #333;
 	
 	box-shadow: 0px 1px 4px #000;
 	
@@ -103,7 +105,7 @@ li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s backgrou
 
 //structure
 
-.forecast-today {height: 0;opacity: 0;-webkit-transition:.2s all ease-out;-webkit-transform:translate3d(0px, 0px, 0px);}
+.forecast-today {height: 0; overflow:hidden;/* opacity: 0; */-webkit-transition:.2s all ease-out;-webkit-transform:translate3d(0px, 0px, 0px);}
 .menu-focus {height: 22px;}
 .forecast {padding-top: 22px;-webkit-transition:.2s padding ease-out;-webkit-transform:translate3d(0px, 0px, 0px);}
 
@@ -168,7 +170,7 @@ li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s backgrou
 		position: relative;
 		z-index: 10;
 		
-		-webkit-mask-position: center 75%;
+		-webkit-mask-position: center center;
 		-webkit-mask-composite: source-out;
 		-webkit-mask-repeat: no-repeat;
 		-webkit-mask-size: auto 150%;
@@ -181,7 +183,7 @@ li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s backgrou
 			-webkit-filter: drop-shadow( hsla(0,0%,  0%,.2) 0 0 10px );
 		}
 	
-	$data-type-icons:Cloud-Download Cloud-Drizzle-Alt Cloud-Drizzle-Moon-Alt Cloud-Drizzle-Moon Cloud-Drizzle-Sun-Alt Cloud-Drizzle-Sun Cloud-Drizzle Cloud-Fog-Alt Cloud-Fog-Moon-Alt Cloud-Fog-Moon Cloud-Fog-Sun-Alt Cloud-Fog-Sun Cloud-Fog Cloud-Hail-Alt Cloud-Hail-Moon-Alt Cloud-Hail-Moon Cloud-Hail-Sun-Alt Cloud-Hail-Sun Cloud-Hail Cloud-Lightning-Moon Cloud-Lightning-Sun Cloud-Lightning Cloud-Moon Cloud-Rain-Alt Cloud-Rain-Moon-Alt Cloud-Rain-Moon Cloud-Rain-Sun-Alt Cloud-Rain-Sun Cloud-Rain Cloud-Refresh Cloud-Snow-Alt Cloud-Snow-Moon-Alt Cloud-Snow-Moon Cloud-Snow-Sun-Alt Cloud-Snow-Sun Cloud-Snow Cloud-Sun Cloud-Upload Cloud-Wind-Moon Cloud-Wind-Sun Cloud-Wind Cloud Compass-East Compass-North Compass-South Compass-West Compass Degrees-Celcius Degrees-Fahrenheit Moon-First-Quarter Moon-Full Moon-Last-Quarter Moon-New Moon-Waning-Crescent Moon-Waning-Gibbous Moon-Waxing-Crescent Moon-Waxing-Gibbous Moon Shades Snowflake Sun-Low Sun-Lower Sun Sunrise Sunset Thermometer-25 Thermometer-50 Thermometer-75 Thermometer-100 Thermometer-Zero Thermometer Tornado Umbrella Wind;
+	$data-type-icons:Sun Cloud-Rain Cloud-Lightning Cloud-Fog Cloud Cloud-Sun Cloud-Drizzle Wind Cloud-Hail Snowflake Cloud-Snow ;
 	
 	@each $icon in $data-type-icons {
 		.icon[data-icon=#{$icon}] {
@@ -193,19 +195,19 @@ li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s backgrou
 
 	/* Highs: orange/red */
 		$high1: #333333;
-		$high2: #963603;
-		$high3: #E63A1A;
+		$high2: #6D1900;
+		$high3: #FF8700;
 		
 	
 	/* Lows: green/blue/purple */
 		$low1: #333333;
 		$low2: #0A2633;
-		$low3: #215FB7;
+		$low3: #3766DD;
 	
 	/* Rain: misty white/blue */
 		$rain1: #333333;
 		$rain2: #186011;
-		$rain3: #2AB259;
+		$rain3: #33C666;
 	
 	
 	/* clouds cover: bright blue/darker duller blue */

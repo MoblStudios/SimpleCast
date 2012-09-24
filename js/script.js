@@ -13,12 +13,86 @@ $(function() {
 	
 	});
 	
-	$('.menu-focus li').click(function(){
-		var clicked = $(this).text().toLowerCase();;
-		$('body').removeClass().addClass('display-' + clicked);
-	});
 	
-
+	/* MATH STUFF:  the following functions are here to find the strength to apply colors. */
+	
+		// function to clip ranges between 0 and 100
+		function clip(Percent) {
+			var num = (num > 100) ? 100 : num;
+			var num = (num < 0) ? 0 : num;
+			return Percent;
+		}
+		
+		// return the correct strength classes function.
+		var range = 5;
+		function calcAsc(val) { // for highs.  highest temps highlighted
+			var Normal = 70; // get from api
+			var NormalBottom = Normal - range; // bottom of range around normal temp
+			var Percent = Math.round(parseInt((((val - NormalBottom)/(range*2))*100))/5)*5;
+			clip();
+			return Percent;
+		}
+		function calcDsc(val) { // for lows.  coldest temps get highlghted
+			var Normal = 49; // get from api
+			var NormalTop = Normal + range; // top of range around normal temp
+			var Percent = Math.round(parseInt((((NormalTop - val)/(range*2))*100))/5)*5;
+			clip();
+			return Percent;
+		}
+		function calcPercent(val) { // for standard percents
+			var Percent = Math.round(parseInt(val)/5)*5;
+			clip();
+			return Percent;
+		}
+	
+		/* handling the display of stuff */
+		// change colors/focus when clicked in top header
+		$('.menu-focus li').click(function(){
+			var clicked = $(this).text().toLowerCase();
+			$('body').removeClass().addClass('display-' + clicked);
+			
+			// The List
+			$('.forecast-days > li').each(function(){
+				var val = $(this).find('.meta-' + clicked).text();
+				var val = val.slice(0, -1);
+				if(clicked == 'high') {
+					var Str = calcAsc(val);
+				} else if(clicked == 'low') {
+					var Str = calcDsc(val);
+				} else if(clicked == 'rain') {
+					var Str = calcPercent(val);
+				}
+				$(this).removeClass().addClass('str-' + Str);
+			});
+			
+			// the top header changes when clicked?
+			/* 
+			$('#top-wrap').each(function(){
+				var val = $(this).find('.meta-' + clicked).text();
+				var val = val.slice(0, -1);
+				if(clicked == 'high') {
+					var Str = calcAsc(val);
+				} else if(clicked == 'low') {
+					var Str = calcDsc(val);
+				} else if(clicked == 'rain') {
+					var Str = calcPercent(val);
+				}
+				$(this).removeClass().addClass('str-' + Str);
+			});
+			*/
+		});
+		
+		/* when page loads... */
+		// The List
+		$('.forecast-days > li').each(function(){
+			var val = $(this).find('.meta-high').text();
+			var val = val.slice(0, -1);
+			var Str = calcAsc(val);
+			$(this).removeClass().addClass('str-' + Str);
+		});
+	
+	
+	// @todo.  andrew, clean up the CSS and icons to match this list.
 	var iconMap = {
 		'clear' : 'Sun',
 		'Sun' : 'Sun',
@@ -81,4 +155,9 @@ $(function() {
 			}
 		});
 	});
+	
+	
+	
+	
+	
 });
