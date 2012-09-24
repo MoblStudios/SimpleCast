@@ -57,11 +57,10 @@ $(function() {
 		forecast[0].icon = iconMap[forecast[0].icon]; //set proper icon for today
 		$('.forecast-today').html(todayTemplate(forecast[0]));
 		
-
 		//render forecast
 		forecast.splice(0, 1); //remove today
 		//set proper icon class
-		for(var i = 0; i < forecast.length; i++){ console.log(forecast[i].icon)
+		for(var i = 0; i < forecast.length; i++){ 
 			forecast[i].icon = iconMap[forecast[i].icon];
 		}
 		var data = {forecast : forecast};
@@ -75,7 +74,7 @@ $(function() {
 		var lon = pos.coords.longitude;
 
 		$.ajax({
-			url : 'http://localhost:3333/weather?lat='+lat+'&lon='+lon,
+			url : '/weather?lat='+lat+'&lon='+lon,
 			dataType : 'jsonp',
 			success : function(data){ console.log(data)
 				render(data);
