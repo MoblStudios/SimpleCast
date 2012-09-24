@@ -33,14 +33,14 @@ app.get('/weather', function(req, res){
 	var query = lat+','+lon;
 	
 
-	// var currentOptions = {
-	// 	host: 'api.wunderground.com',
-	// 	port: 80,
-	// 	path: '/api/16ff6f53cb5fb58f/conditions/q/'+query+'.json',
-	// 	method: 'GET'
-	// };
-	
-	// rest.getJSON(currentOptions, function(status, current){
+	var almanacOptions = {
+		host: 'api.wunderground.com',
+		port: 80,
+		path: 'http://api.wunderground.com/api/16ff6f53cb5fb58f/almanac/q/'+query+'.json',
+		method: 'GET'
+	};
+
+	rest.getJSON(almanacOptions, function(status, almanac){
 		
 		var forecastOptions = {
 			host: 'api.wunderground.com',
@@ -73,9 +73,10 @@ app.get('/weather', function(req, res){
 				});
 			}
 
+			data.almanac = almanac.almanac;
 			res.send(callback+'('+JSON.stringify(data)+');');
 		});
-	// });
+	});
 
 });
 
