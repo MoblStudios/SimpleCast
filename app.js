@@ -30,7 +30,7 @@ app.get('/weather', function(req, res){
 	var callback = req.param('callback');
 	var lat = req.param('lat') || '';
 	var lon = req.param('lon') || '';
-	var query = lat+','+lon;
+	var query = 'lat='+lat+'&lon='+lon;
 	
 
 	var almanacOptions = {
@@ -43,9 +43,9 @@ app.get('/weather', function(req, res){
 	rest.getJSON(almanacOptions, function(status, almanac){
 		
 		var forecastOptions = {
-			host: 'api.wunderground.com',
+			host: 'mattnull.openweather.jit.su',
 			port: 80,
-			path: '/api/16ff6f53cb5fb58f/forecast10day/q/'+query+'.json',
+			path: '/forecast?'+query,
 			method: 'GET'
 		};
 
