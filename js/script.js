@@ -12,7 +12,25 @@ $(function() {
 		}
 	
 	});
-	
+	 var calcStrength = function(clicked){
+	 	// The List
+		$('.forecast-days > li').each(function(){
+			var val = $(this).find('.meta-' + clicked).text();
+			var val = val.slice(0, -1);
+			var forecast = $('.forecast-days');
+			var highData = parseInt(forecast.attr('data-temp-high'));
+			var lowData = parseInt(forecast.attr('data-temp-low'));
+
+			if(clicked == 'high') {
+				var Str = calcAsc(val, highData);
+			} else if(clicked == 'low') {
+				var Str = calcDsc(val, lowData);
+			} else if(clicked == 'rain') {
+				var Str = calcPercent(val);
+			}
+			$(this).removeClass().addClass('str-' + Str);
+		});
+	 }
 	
 	/* MATH STUFF:  the following functions are here to find the strength to apply colors. */
 	
@@ -51,23 +69,7 @@ $(function() {
 			var clicked = $(this).text().toLowerCase();
 			$('body').removeClass().addClass('display-' + clicked);
 			
-			// The List
-			$('.forecast-days > li').each(function(){
-				var val = $(this).find('.meta-' + clicked).text();
-				var val = val.slice(0, -1);
-				var forecast = $('.forecast-days');
-				var highData = parseInt(forecast.attr('data-temp-high'));
-				var lowData = parseInt(forecast.attr('data-temp-low'));
-
-				if(clicked == 'high') {
-					var Str = calcAsc(val, highData);
-				} else if(clicked == 'low') {
-					var Str = calcDsc(val, lowData);
-				} else if(clicked == 'rain') {
-					var Str = calcPercent(val);
-				}
-				$(this).removeClass().addClass('str-' + Str);
-			});
+			calcStrength(clicked);
 			
 			// the top header changes when clicked?
 			/* 
@@ -144,10 +146,11 @@ $(function() {
 		var data = {forecast : forecast, almanac : data.almanac};
 		$('#forecast').html(forecastTemplate(data));
 
+		calcStrength('high');
 	};
 
 	//get data
-	navigator.geolocation.getCurrentPosition(function(pos){
+	navigator.geolocation.getCurrentPosition(function(pos){ console.log(pos)
 		var lat = pos.coords.latitude;
 		var lon = pos.coords.longitude;
 
