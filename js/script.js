@@ -29,6 +29,7 @@ $(function() {
 				var Str = calcPercent(val);
 			}
 			$(this).removeClass().addClass('str-' + Str);
+			$('#top-wrap').removeClass().addClass('str-' + Str);
 		});
 	 }
 	
@@ -65,7 +66,7 @@ $(function() {
 	
 		/* handling the display of stuff */
 		// change colors/focus when clicked in top header
-		$('.menu-focus li').click(function(){
+		$(document).on('click', '.menu-focus li', function(){
 			var clicked = $(this).text().toLowerCase();
 			$('body').removeClass().addClass('display-' + clicked);
 			
@@ -90,12 +91,12 @@ $(function() {
 		
 		/* when page loads... */
 		// The List
-		$('.forecast-days > li').each(function(){
-			var val = $(this).find('.meta-high').text();
-			var val = val.slice(0, -1);
-			var Str = calcAsc(val);
-			$(this).removeClass().addClass('str-' + Str);
-		});
+		// $('.forecast-days > li').each(function(){
+		// 	var val = $(this).find('.meta-high').text();
+		// 	var val = val.slice(0, -1);
+		// 	var Str = calcAsc(val);
+		// 	$(this).removeClass().addClass('str-' + Str);
+		// });
 	
 	
 	// @todo.  andrew, clean up the CSS and icons to match this list.
@@ -135,7 +136,7 @@ $(function() {
 
 		//render today
 		forecast[0].icon = iconMap[forecast[0].icon]; //set proper icon for today
-		$('.forecast-today').html(todayTemplate(forecast[0]));
+		$('#today').html(todayTemplate(forecast[0]));
 		
 		//render forecast
 		forecast.splice(0, 1); //remove today
