@@ -148,7 +148,7 @@ $(function() {
 	};
 
 	//get data
-	navigator.geolocation.getCurrentPosition(function(pos){
+	window.navigator.geolocation.getCurrentPosition(function(pos){
 		var lat = pos.coords.latitude;
 		var lon = pos.coords.longitude;
 
