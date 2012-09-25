@@ -30,22 +30,22 @@ app.get('/weather', function(req, res){
 	var callback = req.param('callback');
 	var lat = req.param('lat') || '';
 	var lon = req.param('lon') || '';
-	var query = 'lat='+lat+'&lon='+lon;
+	var query = lat+','+lon;
 	
 
 	var almanacOptions = {
 		host: 'api.wunderground.com',
 		port: 80,
-		path: 'http://api.wunderground.com/api/16ff6f53cb5fb58f/almanac/q/'+query+'.json',
+		path: '/api/f93894415f25486e/almanac/q/'+query+'.json',
 		method: 'GET'
 	};
 
 	rest.getJSON(almanacOptions, function(status, almanac){
 		
 		var forecastOptions = {
-			host: 'mattnull.openweather.jit.su',
+			host: 'api.wunderground.com',
 			port: 80,
-			path: '/forecast?'+query,
+			path: '/api/f93894415f25486e/forecast10day/q/'+query+'.json',
 			method: 'GET'
 		};
 
@@ -58,7 +58,7 @@ app.get('/weather', function(req, res){
 			//process data 
 			var data = {};
 			data.forecast = [];
-			
+		
 			var f = forecast.forecast.simpleforecast.forecastday;
 			
 			for(var i = 0; i < f.length; i++){

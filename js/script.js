@@ -12,7 +12,8 @@ $(function() {
 		}
 	
 	});
-	 var calcStrength = function(clicked){
+
+	var calcStrength = function(clicked){
 	 	// The List
 		$('.forecast-days > li').each(function(){
 			var val = $(this).find('.meta-' + clicked).text();
@@ -36,10 +37,8 @@ $(function() {
 	/* MATH STUFF:  the following functions are here to find the strength to apply colors. */
 	
 		// function to clip ranges between 0 and 100
-		function clip(Percent) {
-			var num = (num > 100) ? 100 : num;
-			var num = (num < 0) ? 0 : num;
-			return Percent;
+		function clip(num) {
+			return (num > 100) ? 100 : (num < 0) ? 0 : num;
 		}
 		
 		// return the correct strength classes function.
@@ -48,20 +47,18 @@ $(function() {
 			var Normal = data; // get from api
 			var NormalBottom = Normal - range; // bottom of range around normal temp
 			var Percent = Math.round(parseInt((((val - NormalBottom)/(range*2))*100))/5)*5;
-			clip();
-			return Percent;
+
+			return clip(Percent);
 		}
 		function calcDsc(val, data) { // for lows.  coldest temps get highlghted
 			var Normal = data; // get from api
 			var NormalTop = Normal + range; // top of range around normal temp
-			var Percent = Math.round(parseInt((((NormalTop - val)/(range*2))*100))/5)*5;
-			clip();
-			return Percent;
+			var Percent = -(Math.round(parseInt((((NormalTop - val)/(range*2))*100))/5)*5);
+			return clip(Percent);
 		}
 		function calcPercent(val) { // for standard percents
 			var Percent = Math.round(parseInt(val)/5)*5;
-			clip();
-			return Percent;
+			return clip(Percent);
 		}
 	
 		/* handling the display of stuff */
@@ -158,7 +155,7 @@ $(function() {
 		$.ajax({
 			url : '/weather?lat='+lat+'&lon='+lon,
 			dataType : 'jsonp',
-			success : function(data){
+			success : function(data){ console.log(data)
 				render(data);
 			}
 		});
