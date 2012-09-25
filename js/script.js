@@ -158,7 +158,7 @@ $(function() {
 		$.ajax({
 			url : '/weather?lat='+lat+'&lon='+lon,
 			dataType : 'jsonp',
-			success : function(data){ console.log(data)
+			success : function(data){
 				render(data);
 			}
 		});
