@@ -1,5 +1,5 @@
 // JS
-$(function() {
+document.addEventListener("deviceready", function(){
 
 	$(window).scroll(function () { 
 		
@@ -161,4 +161,4 @@ $(function() {
 		});
 	});
 	
-});
+}, false);
