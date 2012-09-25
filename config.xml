@@ -1,1 +1,20 @@
-<feature name="http://api.phonegap.com/1.0/geolocation"/>
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.example"
+        versionCode="10" 
+        version   = "1.0.0">
+
+    <name>SimpleCast</name>
+
+    <description>
+       	Simple weather.
+    </description>
+
+    <author href="https://build.phonegap.com" email="support@phonegap.com">
+        Matt Null / Andrew Crocker 
+    </author>
+    <preference name="permissions" value="none"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+
+</widget>
