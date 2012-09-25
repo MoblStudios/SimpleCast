@@ -153,7 +153,7 @@ $(function() {
 		var lon = pos.coords.longitude;
 
 		$.ajax({
-			url : '/weather?lat='+lat+'&lon='+lon,
+			url : 'http://mattnull.simplecast.jit.su/weather?lat='+lat+'&lon='+lon,
 			dataType : 'jsonp',
 			success : function(data){ console.log(data)
 				render(data);
