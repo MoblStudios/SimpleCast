@@ -1,6 +1,6 @@
 // JS
 $(function() {
-	
+
 	$(window).scroll(function () { 
 		
 		var scrollTop = $(window).scrollTop();
@@ -25,15 +25,15 @@ $(function() {
 		
 		// return the correct strength classes function.
 		var range = 5;
-		function calcAsc(val) { // for highs.  highest temps highlighted
-			var Normal = 70; // get from api
+		function calcAsc(val, data) { // for highs.  highest temps highlighted
+			var Normal = data; // get from api
 			var NormalBottom = Normal - range; // bottom of range around normal temp
 			var Percent = Math.round(parseInt((((val - NormalBottom)/(range*2))*100))/5)*5;
 			clip();
 			return Percent;
 		}
-		function calcDsc(val) { // for lows.  coldest temps get highlghted
-			var Normal = 49; // get from api
+		function calcDsc(val, data) { // for lows.  coldest temps get highlghted
+			var Normal = data; // get from api
 			var NormalTop = Normal + range; // top of range around normal temp
 			var Percent = Math.round(parseInt((((NormalTop - val)/(range*2))*100))/5)*5;
 			clip();
@@ -55,10 +55,14 @@ $(function() {
 			$('.forecast-days > li').each(function(){
 				var val = $(this).find('.meta-' + clicked).text();
 				var val = val.slice(0, -1);
+				var forecast = $('.forecast-days');
+				var highData = parseInt(forecast.attr('data-temp-high'));
+				var lowData = parseInt(forecast.attr('data-temp-low'));
+
 				if(clicked == 'high') {
-					var Str = calcAsc(val);
+					var Str = calcAsc(val, highData);
 				} else if(clicked == 'low') {
-					var Str = calcDsc(val);
+					var Str = calcDsc(val, lowData);
 				} else if(clicked == 'rain') {
 					var Str = calcPercent(val);
 				}
@@ -137,8 +141,8 @@ $(function() {
 		for(var i = 0; i < forecast.length; i++){ 
 			forecast[i].icon = iconMap[forecast[i].icon];
 		}
-		var data = {forecast : forecast};
-		$('.forecast-days').html(forecastTemplate(data));
+		var data = {forecast : forecast, almanac : data.almanac};
+		$('#forecast').html(forecastTemplate(data));
 
 	};
 
