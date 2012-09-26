@@ -22,13 +22,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <!-- <link rel="stylesheet" type="text/css" href="css/styles.css" /> -->
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
         <title>SimpleCast</title>
     </head>
     <body class="display-high">
-        <div id="wrapper" class="expanded-top">         
+        <div id="wrapper" class="expanded-top">
+            
             <div id="today"></div>
             <div class="forecast" id="forecast"></div>
+        
             <div class="settings">
                 <span class="btn">Close</span>
                 location<br />
@@ -36,10 +38,44 @@
                 credits
             </div>
         </div>
-
+        <script id="today-template" type="text/x-handlebars-template">
+            <div id="top-wrap" class="str-0"> 
+                <div class="forecast-today">
+                    <i class="icon" data-icon="{{icon}}"></i>
+                    <ul class="day-meta">
+                        <li class="meta-1 meta-high">{{high}}&deg;</li>
+                        <li class="meta-display"> / </li>
+                        <li class="meta-1 meta-high">{{low}}&deg;</li>
+                        <li class="meta-1 meta-rain">{{perc}}%</li>
+                    </ul>
+                    <span class="date"><strong>{{weekDay}}</strong> {{month}}, {{day}}</span>
+                </div>
+                
+                <ul class="menu-focus">
+                    <li class="meta-1 meta-high">High</li>
+                    <li class="meta-2 meta-low">Low</li>
+                    <li class="meta-3 meta-rain">Rain</li>
+                </ul>
+            </div> 
+        </script>
+        <script id="forecast-template" type="text/x-handlebars-template">
+            <ol class="forecast-days" data-temp-high="{{almanac.temp_high.normal.F}}" data-temp-low="{{almanac.temp_low.normal.F}}">
+                {{#forecast}}
+                    <li class="str-0">
+                        <i class="icon" data-icon="{{icon}}"></i>
+                        <span class="date"><strong>{{weekDay}}</strong> {{month}}, {{day}}</span>
+                        <ul class="day-meta">
+                            <li class="meta-1 meta-high">{{high}}&deg;</li>
+                            <li class="meta-2 meta-low">{{low}}&deg;</li>
+                            <li class="meta-3 meta-rain">{{perc}}%</li>
+                        </ul>
+                    </li>
+                {{/forecast}}
+            </ol>
+        </script>
         <script type="text/javascript" src="cordova-2.0.0.js"></script>
-        <!-- // <script type="text/javascript" src="js/jquery.min.js"></script> -->
-        <!-- // <script type="text/javascript" src="js/handlebars.min.js"></script> -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/handlebars.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
