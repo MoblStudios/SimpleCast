@@ -29,8 +29,8 @@ var app = {
         app.report('deviceready');
         $(window).scroll(function () { 
             
-            var scrollTop = $(window).scrollTop();
-             
+            var scrollTop = document.body.scrollTop;
+
             if(scrollTop > 0){
                 $('#wrapper').removeClass('expanded-top');
             }else{
