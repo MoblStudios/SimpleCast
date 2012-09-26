@@ -31,7 +31,7 @@ body {
 
 // transitions
 #top-wrap,
-li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s background ease-out;}
+li {-webkit-transform:translate3d(0, 0, 0);-webkit-transition:.2s background ease-out;}
 
 // top
 #top-wrap.str-0 {
@@ -114,21 +114,37 @@ li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s backgrou
 
 //structure
 
-.forecast-today {height: 0; overflow:hidden;/* opacity: 0; */-webkit-transition:.2s all ease-out;-webkit-transform:translate3d(0px, 0px, 0px);}
-.menu-focus {height: 22px;}
-.forecast {padding-top: 22px;-webkit-transition:.2s padding ease-out;-webkit-transform:translate3d(0px, 0px, 0px);}
+.forecast-today {
+	height: 0;
+	overflow:hidden;
+	/* opacity: 0; */
+	-webkit-transition:.2s all ease-out;
+	-webkit-transform:translate3d(0, 0, 0);
+	}
+.menu-focus {
+	height: 22px;
+	}
+.forecast {
+	padding-top: 22px;
+	-webkit-transition:.2s padding ease-out;
+	-webkit-transform:translate3d(0, 0, 0);
+	}
 
 // Expanded
 .expanded-top {
+	#top-wrap {position: relative;}
 	.forecast-today {height: 200px;opacity: 1;}
 	.forecast {
-		padding-top: 222px;
+		//padding-top: 222px;
+		padding-top: 0;
 	}
 }
 
 // settings 
 .settings {
 	padding: 1em;
+	
+	display: none;
 }
 
 
@@ -155,7 +171,10 @@ li {-webkit-transform:translate3d(0px, 0px, 0px);-webkit-transition:.2s backgrou
 	}
 	
 	.icon {width: 15%;}
-	.date {width: 20%;}
+	.date {width: 20%;
+	text-align: left;
+		strong {display: block;}
+	}
 	.day-meta {
 		width: 60%;
 		
