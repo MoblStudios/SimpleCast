@@ -1,4 +1,5 @@
 // JS
+function onLoad(){
 document.addEventListener("deviceready", function(){
 	alert('ready')
 	// $(window).scroll(function () { 
@@ -162,3 +163,4 @@ document.addEventListener("deviceready", function(){
 	// });
 	
 }, false);
+}
