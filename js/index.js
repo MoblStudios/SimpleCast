@@ -56,7 +56,7 @@ var app = {
 					var Str = calcPercent(val);
 				}
 				$(this).removeClass().addClass('str-' + Str);
-				$('#top-wrap').removeClass().addClass('str-' + Str);
+				//$('#top-wrap').removeClass().addClass('str-' + Str);
 			});
 		 }
 		
@@ -100,10 +100,11 @@ var app = {
 			$('#top-wrap').each(function(){
 				var val = $(this).find('.meta-' + clicked).text();
 				var val = val.slice(0, -1);
+				
 				if(clicked == 'high') {
-					var Str = calcAsc(val);
+					var Str = calcAsc(val, highData);
 				} else if(clicked == 'low') {
-					var Str = calcDsc(val);
+					var Str = calcDsc(val, lowData);
 				} else if(clicked == 'rain') {
 					var Str = calcPercent(val);
 				}
