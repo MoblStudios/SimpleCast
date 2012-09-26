@@ -165,7 +165,7 @@ var app = {
         };
 
         //get data
-        //navigator.geolocation.getCurrentPosition(function(pos){
+        navigator.geolocation.getCurrentPosition(function(pos){
             var pos = pos || null;
             var lat = pos && pos.coords.latitude ? pos.coords.latitude : 40.0150;
             var lon = pos && pos.coords.longitude ? pos.coords.longitude : -105.2700;
@@ -177,7 +177,7 @@ var app = {
                     render(data);
                 }
             });
-       // });
+       });
     },
     report: function(id) {
         // Report the event in the console
