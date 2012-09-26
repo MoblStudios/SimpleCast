@@ -1,2 +1,0 @@
-// JS
-$(document).ready(function(){$(window).scroll(function(){var e=$(window).scrollTop();e>0&&$("#wrapper").removeClass("expanded-top")});$(".menu-focus li").click(function(){var e=$(this).text().toLowerCase();$("body").removeClass().addClass("display-"+e)})});
