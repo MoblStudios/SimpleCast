@@ -114,70 +114,70 @@ var app = {
         //     });
             
         
-        // @todo.  andrew, clean up the CSS and icons to match this list.
-        var iconMap = {
-            'clear' : 'Sun',
-            'Sun' : 'Sun',
-            'sunny' : 'Sun',
-            'rain' : 'Cloud-Rain', 
-            'chancetstorms' : 'Cloud-Lightning', 
-            'chancestorms' : 'Cloud-Lightning',
-            'tstorms' : 'Cloud-Lightning',
-            'fog' : 'Cloud-Fog',
-            'hazy' : 'Cloud-Fog',
-            'mostlycloudy' : 'Cloud',
-            'cloudy' : 'Cloud',
-            'mostlysunny' : 'Cloud-Sun',
-            'partlycloudy' : 'Cloud-Sun',
-            'partlysunny' : 'Cloud-Sun',
-            'chancerain' : 'Cloud-Drizzle',
-            'windy' : 'Wind',
-            'chanceflurries' : 'Cloud-Snow',
-            'chancesleet' : 'Cloud-Hail',
-            'sleet' : 'Cloud-Hail',
-            'chancesnow' : 'Snowflake',
-            'flurries' : 'Cloud-Snow',
-            'snow' : 'Cloud-Snow',
-            'unknown' : 'Cloud-Sun'
-        };
+        // // @todo.  andrew, clean up the CSS and icons to match this list.
+        // var iconMap = {
+        //     'clear' : 'Sun',
+        //     'Sun' : 'Sun',
+        //     'sunny' : 'Sun',
+        //     'rain' : 'Cloud-Rain', 
+        //     'chancetstorms' : 'Cloud-Lightning', 
+        //     'chancestorms' : 'Cloud-Lightning',
+        //     'tstorms' : 'Cloud-Lightning',
+        //     'fog' : 'Cloud-Fog',
+        //     'hazy' : 'Cloud-Fog',
+        //     'mostlycloudy' : 'Cloud',
+        //     'cloudy' : 'Cloud',
+        //     'mostlysunny' : 'Cloud-Sun',
+        //     'partlycloudy' : 'Cloud-Sun',
+        //     'partlysunny' : 'Cloud-Sun',
+        //     'chancerain' : 'Cloud-Drizzle',
+        //     'windy' : 'Wind',
+        //     'chanceflurries' : 'Cloud-Snow',
+        //     'chancesleet' : 'Cloud-Hail',
+        //     'sleet' : 'Cloud-Hail',
+        //     'chancesnow' : 'Snowflake',
+        //     'flurries' : 'Cloud-Snow',
+        //     'snow' : 'Cloud-Snow',
+        //     'unknown' : 'Cloud-Sun'
+        // };
 
-        //compile templates
-        var todayTemplate = Handlebars.compile($("#today-template").html());
-        var forecastTemplate = Handlebars.compile($("#forecast-template").html());
+        // //compile templates
+        // var todayTemplate = Handlebars.compile($("#today-template").html());
+        // var forecastTemplate = Handlebars.compile($("#forecast-template").html());
 
-        //render
-        var render = function(data){
-            var forecast = data.forecast;
+        // //render
+        // var render = function(data){
+        //     var forecast = data.forecast;
 
-            //render today
-            forecast[0].icon = iconMap[forecast[0].icon]; //set proper icon for today
-            $('#today').html(todayTemplate(forecast[0]));
+        //     //render today
+        //     forecast[0].icon = iconMap[forecast[0].icon]; //set proper icon for today
+        //     $('#today').html(todayTemplate(forecast[0]));
             
-            //render forecast
-            forecast.splice(0, 1); //remove today
-            //set proper icon class
-            for(var i = 0; i < forecast.length; i++){ 
-                forecast[i].icon = iconMap[forecast[i].icon];
-            }
-            var data = {forecast : forecast, almanac : data.almanac};
-            $('#forecast').html(forecastTemplate(data));
+        //     //render forecast
+        //     forecast.splice(0, 1); //remove today
+        //     //set proper icon class
+        //     for(var i = 0; i < forecast.length; i++){ 
+        //         forecast[i].icon = iconMap[forecast[i].icon];
+        //     }
+        //     var data = {forecast : forecast, almanac : data.almanac};
+        //     $('#forecast').html(forecastTemplate(data));
 
-            //calcStrength('high');
-        };
+        //     //calcStrength('high');
+        // };
 
-        //get data
-        navigator.geolocation.getCurrentPosition(function(pos){
-            var lat = pos.coords.latitude;
-            var lon = pos.coords.longitude;
+        // //get data
+        // navigator.geolocation.getCurrentPosition(function(pos){
+        //     var lat = pos.coords.latitude;
+        //     var lon = pos.coords.longitude;
 
-            $.ajax({
-                url : 'http://mattnull.simplecast.jit.su/weather?lat='+lat+'&lon='+lon,
-                dataType : 'jsonp',
-                success : function(data){ console.log(data)
-                    render(data);
-                }
-            });
-        });
+        //     $.ajax({
+        //         url : 'http://mattnull.simplecast.jit.su/weather?lat='+lat+'&lon='+lon,
+        //         dataType : 'jsonp',
+        //         success : function(data){ console.log(data)
+        //             render(data);
+        //         }
+        //     });
+        // });
     },
     report: function(id) {
         // Report the event in the console
