@@ -1,6 +1,6 @@
 // JS
 document.addEventListener("deviceready", function(){
-	console.log('ready')
+	alert('ready')
 	// $(window).scroll(function () { 
 		
 	// 	var scrollTop = $(window).scrollTop();
