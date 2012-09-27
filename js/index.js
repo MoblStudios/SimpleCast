@@ -30,13 +30,17 @@ var app = {
 		$(window).scroll(function () { 
 			
 			var scrollTop = document.body.scrollTop;
-
 			if(scrollTop > 0){
 				$('#wrapper').removeClass('expanded-top');
-			}else{
+			} else {
 				$('#wrapper').addClass('expanded-top');
 			}
 		
+		});
+		
+		// collapse top when clicking the bottom...
+		$('#forecast').mousedown(function(){
+			$('#wrapper').removeClass('expanded-top');
 		});
 
 		var calcStrength = function(clicked){

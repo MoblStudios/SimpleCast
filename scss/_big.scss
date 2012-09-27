@@ -1,0 +1,113 @@
+// Bigger than 612px;
+
+body {background: #000;
+	overflow: hidden;
+	position: relative;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+// left
+#top-wrap.str-0 {
+	background: #333;
+}
+#today {
+	position: fixed;
+	z-index: 100;
+	width: 30%;
+	top:0;
+	left:0;
+	bottom:0;
+	overflow: hidden;
+}
+#top-wrap {
+	text-align: center;
+	border-radius: 5px;
+	padding: 45% 0 0 0;
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	
+	ul {
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {margin: 0;
+			padding: 0;
+			display: inline-block;
+		}
+		
+		// Meta menu
+		.menu-focus {
+			font-size: 1em;
+			text-transform: uppercase;
+			letter-spacing: .2em;
+			color: rgba(255,255,255,.5);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			
+			
+			& > li {
+				height: 44px;
+				padding: 12px 10px 3px 34px;
+				position: relative;
+				cursor: pointer;
+				width: 33.33%;
+				
+				position: absolute;
+				bottom:0;
+			}
+			
+			& > li:after {
+				/*
+				-webkit-mask-position: center 65%;
+				-webkit-mask-composite: source-out;
+				-webkit-mask-repeat: no-repeat;
+				-webkit-mask-size: auto 150%;
+				*/
+				background-size: contain;
+				content: '';
+				position: absolute;
+				top:8px;
+				left: 6px;
+				width: 28px;
+				height: 28px;
+				opacity: .1;
+			}
+		}
+	
+	.meta-high {left: 0;}
+	.meta-low {left: 33.33%;}
+	.meta-rain {right: 0;}
+		
+	.meta-high:after {background-image: url(svg/Thermometer-100.svg);}
+	.meta-low:after {background-image: url(svg/Snowflake.svg);}
+	.meta-rain:after {background-image: url(svg/Umbrella.svg);}
+	.meta-clouds:after {background-image: url(svg/Cloud.svg);}
+}
+
+.forecast-today .icon {
+			display: block;
+			height: 9em;
+			margin: 1em 0;
+			// -webkit-filter: drop-shadow( hsla(0,0%,  0%,.2) 0 0 10px );
+		}
+
+
+#forecast {
+	width: 68%;
+	position: absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	overflow: auto;
+	}

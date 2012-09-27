@@ -1,0 +1,89 @@
+//phone sized
+
+// top
+#top-wrap.str-0 {
+	background: #333;
+}
+#top-wrap {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	top:0;
+	left:0;
+	overflow: hidden;
+	
+	// box-shadow: 0px 1px 4px #000;
+	border-bottom: 1px solid #000;
+	
+	text-align: center;
+	
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {margin: 0;
+			padding: 0;
+			display: inline-block;
+		}
+		
+		// Meta menu
+		.menu-focus {
+			font-size: .7em;
+			text-transform: uppercase;
+			letter-spacing: .2em;
+			color: rgba(255,255,255,.5);
+			
+			& > li {
+				height: 18px;
+				padding: 3px 10px 3px 23px;
+				margin: 2px;
+				position: relative;
+				cursor: pointer;
+				border-radius: 4px;
+			}
+			
+			& > li:after {
+				/*
+				-webkit-mask-position: center 65%;
+				-webkit-mask-composite: source-out;
+				-webkit-mask-repeat: no-repeat;
+				-webkit-mask-size: auto 150%;
+				*/
+				background-size: contain;
+				content: '';
+				position: absolute;
+				top:2px;
+				left: 2px;
+				width: 14px;
+				height: 14px;
+
+			}
+		}
+		
+	.meta-high:after {background-image: url(svg/Thermometer-100.svg);}
+	.meta-low:after {background-image: url(svg/Snowflake.svg);}
+	.meta-rain:after {background-image: url(svg/Umbrella.svg);}
+	.meta-clouds:after {background-image: url(svg/Cloud.svg);}
+}
+
+.forecast-today .icon {
+			display: block;
+			height: 7em;
+			margin: 1em 0;
+			// -webkit-filter: drop-shadow( hsla(0,0%,  0%,.2) 0 0 10px );
+		}
+
+// structure
+.forecast-today {height: 0; overflow:hidden; opacity: 0; -webkit-transition:.25s all linear;-webkit-transform:translate3d(0, 0, 0);}
+.menu-focus {height: 22px;}
+.forecast {padding-top: 22px;-webkit-transition:.25s padding linear;-webkit-transform:translate3d(0, 0, 0);}
+
+
+// Expanded
+.expanded-top {
+	.forecast-today {height: 200px;opacity: 1;}
+	.forecast {
+		padding-top: 222px;
+	}
+}

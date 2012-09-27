@@ -33,72 +33,6 @@ body {
 #top-wrap,
 li {-webkit-transform:translate3d(0, 0, 0);-webkit-transition:.2s background ease-out;}
 
-// top
-#top-wrap.str-0 {
-	background: #333;
-}
-#top-wrap {
-	position: fixed;
-	z-index: 100;
-	width: 100%;
-	top:0;
-	left:0;
-	overflow: hidden;
-	
-	// box-shadow: 0px 1px 4px #000;
-	border-bottom: 1px solid #000;
-	
-	text-align: center;
-	
-		ul {
-			margin: 0;
-			padding: 0;
-		}
-		
-		li {margin: 0;
-			padding: 0;
-			display: inline-block;
-		}
-		
-		// Meta menu
-		.menu-focus {
-			font-size: .7em;
-			text-transform: uppercase;
-			letter-spacing: .2em;
-			color: rgba(255,255,255,.5);
-			
-			& > li {
-				height: 18px;
-				padding: 3px 10px 3px 23px;
-				margin: 2px;
-				position: relative;
-				cursor: pointer;
-				border-radius: 4px;
-			}
-			
-			& > li:after {
-				/*
-				-webkit-mask-position: center 65%;
-				-webkit-mask-composite: source-out;
-				-webkit-mask-repeat: no-repeat;
-				-webkit-mask-size: auto 150%;
-				*/
-				background-size: contain;
-				content: '';
-				position: absolute;
-				top:2px;
-				left: 2px;
-				width: 14px;
-				height: 14px;
-
-			}
-		}
-		
-		.meta-high:after {background-image: url(svg/Thermometer-100.svg);}
-		.meta-low:after {background-image: url(svg/Snowflake.svg);}
-		.meta-rain:after {background-image: url(svg/Umbrella.svg);}
-		.meta-clouds:after {background-image: url(svg/Cloud.svg);}
-	}
 
 // Active States.
 .display-high .menu-focus .meta-high,
@@ -115,27 +49,14 @@ li {-webkit-transform:translate3d(0, 0, 0);-webkit-transition:.2s background eas
 
 //structure
 
-.forecast-today {height: 0; overflow:hidden; opacity: 0; -webkit-transition:.25s all linear;-webkit-transform:translate3d(0, 0, 0);}
-.menu-focus {height: 22px;}
-.forecast {padding-top: 22px;-webkit-transition:.25s padding linear;-webkit-transform:translate3d(0, 0, 0);}
-
-// Expanded
-.expanded-top {
-	.forecast-today {height: 200px;opacity: 1;}
-	.forecast {
-		padding-top: 222px;
-	}
-}
-
 // settings 
 .settings {
 	padding: 1em;
-	
 	display: none;
 }
 
 
-// Week
+// Week view
 .forecast-days {
 	margin: 0;
 	padding: 0;
@@ -192,11 +113,7 @@ li {-webkit-transform:translate3d(0, 0, 0);-webkit-transition:.2s background eas
 		background-size: contain;
 		height: 3em;
 		}
-		.forecast-today .icon {
-			display: block;
-			height: 9em;
-			// -webkit-filter: drop-shadow( hsla(0,0%,  0%,.2) 0 0 10px );
-		}
+		
 	
 	$data-type-icons:Sun Cloud-Rain Cloud-Lightning Cloud-Fog Cloud Cloud-Sun Cloud-Drizzle Wind Cloud-Hail Snowflake Cloud-Snow ;
 	
@@ -209,18 +126,21 @@ li {-webkit-transform:translate3d(0, 0, 0);-webkit-transition:.2s background eas
 /* === Intensity colors === */
 
 	/* Highs: orange/red */
-		$high1: #333333;
+		//$high1: #333333;
+		$high1: #330000;
 		$high2: #6D1900;
-		$high3: #FF8700;
+		$high3: #FFB600;
 		
 	
 	/* Lows: green/blue/purple */
-		$low1: #333333;
+		//$low1: #333333;
+		$low1: #00091E;
 		$low2: #0A2633;
 		$low3: #3766DD;
 	
 	/* Rain: misty white/blue */
-		$rain1: #333333;
+		//$rain1: #333333;
+		$rain1: #021C00;
 		$rain2: #186011;
 		$rain3: #33C666;
 	
@@ -254,4 +174,12 @@ li {-webkit-transform:translate3d(0, 0, 0);-webkit-transition:.2s background eas
 		
 		$mix2: $mix2 - 10;
 		$i: $i - 5;
+	}
+	
+/* MEDIAQUERIES */
+@media only screen and (max-width: 612px) {
+	@import "small";
+	}
+@media only screen and (min-width: 612px) {
+	@import "big";
 	}
