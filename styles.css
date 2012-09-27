@@ -313,6 +313,15 @@ li {
 .display-rain .str-0 {
   background: #021c00; }
 
+.display-high #forecast {
+  background: #330000; }
+
+.display-low #forecast {
+  background: #00091e; }
+
+.display-rain #forecast {
+  background: #021c00; }
+
 /* MEDIAQUERIES */
 @media only screen and (max-width: 612px) {
   #top-wrap.str-0 {

@@ -176,6 +176,11 @@ li {-webkit-transform:translate3d(0, 0, 0);-webkit-transition:.2s background eas
 		$i: $i - 5;
 	}
 	
+	// forecast box backgrounds
+	.display-high #forecast {background: $high1;}
+	.display-low #forecast {background: $low1;}
+	.display-rain #forecast {background: $rain1;}
+	
 /* MEDIAQUERIES */
 @media only screen and (max-width: 612px) {
 	@import "small";
