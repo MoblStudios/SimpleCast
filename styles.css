@@ -388,7 +388,7 @@ li {
     height: 0;
     overflow: hidden;
     opacity: 0;
-    /*-webkit-transition: .25s all linear;*/
+    -webkit-transition: .25s all linear;
     -webkit-transform: translate3d(0, 0, 0); }
 
   .menu-focus {

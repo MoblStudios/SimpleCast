@@ -32,12 +32,10 @@ var app = {
 			
 			var scrollTop = document.body.scrollTop;
 			if(scrollTop > 0){
-				// wrapper.removeClass('expanded-top');
-				$('div.forecast-today').css({height : '0px'});
+				wrapper.removeClass('expanded-top');
 				
 			}else{
-				// wrapper.addClass('expanded-top');
-				$('div.forecast-today').css({height : '200px'});
+				wrapper.addClass('expanded-top');
 			}
 		});
 		
