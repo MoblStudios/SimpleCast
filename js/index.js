@@ -31,9 +31,11 @@ var app = {
 		$(window).scroll(function (e) { 
 			
 			var scrollTop = document.body.scrollTop;
-			if(scrollTop < 0){
-				wrapper.addClass('expanded-top');
+			if(scrollTop > 0){
+				wrapper.removeClass('expanded-top');
 				
+			}else{
+				wrapper.addClass('expanded-top');
 			}
 		});
 		
