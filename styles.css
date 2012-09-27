@@ -9,6 +9,7 @@ otherwise, please make changes in both, so when I compile i don't overwrite!
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -webkit-user-select : none;
   box-sizing: border-box; }
 
 html,
