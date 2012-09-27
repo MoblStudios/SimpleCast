@@ -28,11 +28,12 @@ var app = {
 		// So, we must explicitly called `app.report()` instead of `this.report()`.
 		app.report('deviceready');
 		var wrapper = $('#wrapper');
-		$(window).scroll(function () { 
+		$(window).scroll(function (e) { 
 			
 			var scrollTop = document.body.scrollTop;
 			if(scrollTop > 0){
 				wrapper.removeClass('expanded-top');
+				
 			}else{
 				wrapper.addClass('expanded-top');
 			}
