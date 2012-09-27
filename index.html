@@ -15,7 +15,8 @@
                 <span class="btn">Close</span>
                 location<br />
                 which things shown where?<br />
-                credits
+                credits<br />
+                <a href="http://adamwhitcroft.com/climacons/">Climacons</a> by <a href="twitter.com/#!/adamwhitcroft">@adamwhitcroft</a>
             </div>
         </div>
         <script id="today-template" type="text/x-handlebars-template">
@@ -28,7 +29,7 @@
                         <li class="meta-1 meta-high">{{low}}&deg;</li>
                         <li class="meta-1 meta-rain">{{perc}}%</li>
                     </ul>
-                    <span class="date"><strong>{{weekDay}}</strong> {{month}}, {{day}}</span>
+                    <span class="date"><strong class="i-day">{{weekDay}}</strong> <span class="i-month">{{month}}</span>, {{day}}</span>
                 </div>
                 
                 <ul class="menu-focus">
@@ -43,7 +44,7 @@
                 {{#forecast}}
                     <li class="str-0">
                         <i class="icon" data-icon="{{icon}}"></i>
-                        <span class="date"><strong>{{weekDay}}</strong> {{month}}, {{day}}</span>
+                        <span class="date"><strong class="i-day">{{weekDay}}</strong> <span class="i-month">{{month}}</span>, {{day}}</span>
                         <ul class="day-meta">
                             <li class="meta-1 meta-high">{{high}}&deg;</li>
                             <li class="meta-2 meta-low">{{low}}&deg;</li>

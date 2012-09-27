@@ -60,6 +60,19 @@ var app = {
 			});
 		 }
 		
+	/* DECORATIVE: just changing the names of days and months */
+		function shortdates() {
+			$('.i-day').each(function() {
+				var d = $(this).text().slice(0, 3);
+				//var d = (d == "Thu") ? "Thur" : d;
+				$(this).text(d);
+			});
+			$('.i-month').each(function() {
+				var m = $(this).text().slice(0, 3);
+				$(this).text(m);
+			});
+		}
+	
 	/* MATH STUFF:  the following functions are here to find the strength to apply colors. */
 		
 		// function to clip ranges between 0 and 100
@@ -112,6 +125,7 @@ var app = {
 			});
 			
 		});
+		
 		
 	
 		// @todo.  andrew, clean up the CSS and icons to match this list.
@@ -176,9 +190,10 @@ var app = {
 				dataType : 'jsonp',
 				success : function(data){ console.log(data)
 					render(data);
+					shortdates();
 				}
 			});
-	   });
+		});
 	},
 	report: function(id) {
 		// Report the event in the console
@@ -191,4 +206,7 @@ var app = {
 		// var completeElem = document.querySelector('#' + id + ' .complete');
 		// completeElem.className = completeElem.className.split('hide').join('');
 	}
+	
+	
+	
 };

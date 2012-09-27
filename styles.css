@@ -38,7 +38,7 @@ li {
   top: 0;
   left: 0;
   overflow: hidden;
-  box-shadow: 0px 1px 4px #000;
+  border-bottom: 1px solid #000;
   text-align: center; }
   #top-wrap ul {
     margin: 0;
@@ -60,25 +60,27 @@ li {
       cursor: pointer;
       border-radius: 4px; }
     #top-wrap .menu-focus > li:after {
+      /*
       -webkit-mask-position: center 65%;
       -webkit-mask-composite: source-out;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-size: auto 150%;
-      background: rgba(255, 255, 255, 0.5);
+      */
+      background-size: contain;
       content: '';
       position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 22px;
-      height: 22px; }
+      top: 2px;
+      left: 2px;
+      width: 14px;
+      height: 14px; }
   #top-wrap .meta-high:after {
-    -webkit-mask-image: url(svg/Thermometer-100.svg); }
+    background-image: url(svg/Thermometer-100.svg); }
   #top-wrap .meta-low:after {
-    -webkit-mask-image: url(svg/Snowflake.svg); }
+    background-image: url(svg/Snowflake.svg); }
   #top-wrap .meta-rain:after {
-    -webkit-mask-image: url(svg/Umbrella.svg); }
+    background-image: url(svg/Umbrella.svg); }
   #top-wrap .meta-clouds:after {
-    -webkit-mask-image: url(svg/Cloud.svg); }
+    background-image: url(svg/Cloud.svg); }
 
 .display-high .menu-focus .meta-high,
 .display-low .menu-focus .meta-low,
@@ -95,8 +97,8 @@ li {
 .forecast-today {
   height: 0;
   overflow: hidden;
-  /* opacity: 0; */
- /* -webkit-transition: .2s all ease-out; */
+  opacity: 0;
+  -webkit-transition: .25s all linear;
   -webkit-transform: translate3d(0, 0, 0); }
 
 .menu-focus {
@@ -104,16 +106,14 @@ li {
 
 .forecast {
   padding-top: 22px;
-  -webkit-transition: .2s padding ease-out;
+  -webkit-transition: .25s padding linear;
   -webkit-transform: translate3d(0, 0, 0); }
 
-.expanded-top #top-wrap {
-  position: relative; }
 .expanded-top .forecast-today {
   height: 200px;
   opacity: 1; }
 .expanded-top .forecast {
-  padding-top: 0; }
+  padding-top: 222px; }
 
 .settings {
   padding: 1em;
@@ -124,7 +124,6 @@ li {
   padding: 0;
   text-align: center; }
   .forecast-days > li {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1.5em 0;
     overflow: hidden; }
   .forecast-days li > span, .forecast-days li > .icon, .forecast-days li > ul {
@@ -148,56 +147,55 @@ li {
 
 /* === Icons (can go in vars or something) === */
 .icon {
-  -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.5) 0 0 10px);
   overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: #fff;
   position: relative;
   z-index: 10;
+  /*
   -webkit-mask-position: center center;
   -webkit-mask-composite: source-out;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: auto 150%;
+  */
+  background: center center no-repeat;
+  background-size: contain;
   height: 3em; }
 
 .forecast-today .icon {
   display: block;
-  height: 9em;
-  -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.2) 0 0 10px); }
+  height: 9em; }
 
 .icon[data-icon=Sun] {
-  -webkit-mask-image: url("svg/Sun.svg"); }
+  background-image: url("svg/Sun.svg"); }
 
 .icon[data-icon=Cloud-Rain] {
-  -webkit-mask-image: url("svg/Cloud-Rain.svg"); }
+  background-image: url("svg/Cloud-Rain.svg"); }
 
 .icon[data-icon=Cloud-Lightning] {
-  -webkit-mask-image: url("svg/Cloud-Lightning.svg"); }
+  background-image: url("svg/Cloud-Lightning.svg"); }
 
 .icon[data-icon=Cloud-Fog] {
-  -webkit-mask-image: url("svg/Cloud-Fog.svg"); }
+  background-image: url("svg/Cloud-Fog.svg"); }
 
 .icon[data-icon=Cloud] {
-  -webkit-mask-image: url("svg/Cloud.svg"); }
+  background-image: url("svg/Cloud.svg"); }
 
 .icon[data-icon=Cloud-Sun] {
-  -webkit-mask-image: url("svg/Cloud-Sun.svg"); }
+  background-image: url("svg/Cloud-Sun.svg"); }
 
 .icon[data-icon=Cloud-Drizzle] {
-  -webkit-mask-image: url("svg/Cloud-Drizzle.svg"); }
+  background-image: url("svg/Cloud-Drizzle.svg"); }
 
 .icon[data-icon=Wind] {
-  -webkit-mask-image: url("svg/Wind.svg"); }
+  background-image: url("svg/Wind.svg"); }
 
 .icon[data-icon=Cloud-Hail] {
-  -webkit-mask-image: url("svg/Cloud-Hail.svg"); }
+  background-image: url("svg/Cloud-Hail.svg"); }
 
 .icon[data-icon=Snowflake] {
-  -webkit-mask-image: url("svg/Snowflake.svg"); }
+  background-image: url("svg/Snowflake.svg"); }
 
 .icon[data-icon=Cloud-Snow] {
-  -webkit-mask-image: url("svg/Cloud-Snow.svg"); }
+  background-image: url("svg/Cloud-Snow.svg"); }
 
 /* === Intensity colors === */
 /* Highs: orange/red */
