@@ -40,7 +40,7 @@ var app = {
 		});
 		
 		// collapse top when clicking the bottom...
-		$('#forecast').mousedown(function(){
+		$('#forecast').on('touchstart',function(){
 			$('#wrapper').removeClass('expanded-top');
 		});
 
