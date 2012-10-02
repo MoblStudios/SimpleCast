@@ -32,10 +32,14 @@ var app = {
 			
 			var scrollTop = document.body.scrollTop;
 			if(scrollTop > 0){
-				wrapper.removeClass('expanded-top');
+				if(wrapper.hasClass('expanded-top')){
+					wrapper.removeClass('expanded-top');
+				}
 				
 			}else{
-				wrapper.addClass('expanded-top');
+				if(!wrapper.hasClass('expanded-top')){
+					wrapper.addClass('expanded-top');
+				}
 			}
 		});
 		
