@@ -28,7 +28,7 @@ var app = {
 		// So, we must explicitly called `app.report()` instead of `this.report()`.
 		app.report('deviceready');
 		var wrapper = $('#wrapper');
-		$(window).scroll(function (e) { 
+		$(window).on('touchmove', function (e) { 
 			
 			var scrollTop = document.body.scrollTop;
 			if(scrollTop > 0){
@@ -107,7 +107,7 @@ var app = {
 	
 		/* handling the display of stuff */
 		// change colors/focus when clicked in top header
-		$(document).on('click', '.menu-focus li', function(){
+		$(document).on('touchstart', '.menu-focus li', function(){
 			var clicked = $(this).text().toLowerCase();
 			$('body').removeClass().addClass('display-' + clicked);
 			
