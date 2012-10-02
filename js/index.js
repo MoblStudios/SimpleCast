@@ -28,7 +28,7 @@ var app = {
 		// So, we must explicitly called `app.report()` instead of `this.report()`.
 		app.report('deviceready');
 		var wrapper = $('#wrapper');
-		$(window).on('touchmove', function (e) { 
+		$(document).on('touchmove', function (e) { 
 			
 			var scrollTop = document.body.scrollTop;
 			if(scrollTop > 0){

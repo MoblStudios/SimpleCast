@@ -27,7 +27,8 @@ body {
 #top-wrap,
 li {
   -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transition: .2s background ease-out; }
+  /*-webkit-transition: .2s background ease-out; */
+}
 
 .display-high .menu-focus .meta-high,
 .display-low .menu-focus .meta-low,
@@ -403,7 +404,7 @@ li {
     height: 200px;
     opacity: 1; }
   .expanded-top .forecast {
-    padding-top: 222px; } }
+    padding-top: 222px; } 
 @media only screen and (min-width: 612px) {
   body {
     background: #000;
@@ -502,4 +503,5 @@ li {
     bottom: 0px;
     overflow: auto;
     -webkit-transform: translate3d(0, 0, 0);
-    -webkit-transition: .2s background ease-out; } }
+    /*-webkit-transition: .2s background ease-out;*/
+     } }
