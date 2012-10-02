@@ -61,7 +61,7 @@ var app = {
 					var Str = calcPercent(val);
 				}
 				$(this).removeClass().addClass('str-' + Str);
-				//$('#top-wrap').removeClass().addClass('str-' + Str);
+				$('#top-wrap').removeClass().addClass('str-' + Str);
 			});
 		 }
 		
