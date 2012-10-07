@@ -44,9 +44,9 @@ var app = {
 		});
 		
 		// collapse top when clicking the bottom...
-		$('#forecast').on('touchstart',function(){
-			$('#wrapper').removeClass('expanded-top');
-		});
+		// $('#forecast').on('touchstart',function(){
+		// 	$('#wrapper').removeClass('expanded-top');
+		// });
 
 		var calcStrength = function(clicked){
 			// The List
